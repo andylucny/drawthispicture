@@ -25,12 +25,12 @@ Chlieb
 Čierna
 rady
 Kosti
-Bill
+Účet
 Horkosť
 Boxerky
 Opasok
 Mozog
-Buffalo
+Býk
 Vtáčik
 Baby
 Kniha
@@ -38,7 +38,7 @@ Späť
 Maslo
 Žiarovka
 Spony
-Bat
+Netopier
 Banka
 Taška
 Podprsenka
@@ -54,7 +54,6 @@ Chlapec
 Blender
 Vedro
 Pekáreň
-Poklona
 Most
 čln
 Auto
@@ -63,15 +62,15 @@ krava
 Sporák
 Líca
 Syr
-Credenza
+Kredenc
 Koberec
 Vrana
-Crest
+Hrebeň
 Hrudník
 Stolička
-Candy
+Cukrík
 kabinet
-Cat
+Mačka
 Káva
 deti
 Kuchynský riad
@@ -83,15 +82,15 @@ Hrad
 cirkvi
 Kaviareň
 Kino
-Choker
+Nákrčník
 Kravata
 Trstina
 Kostým
-Cardigan
+Vesta
 Čokoláda
 Detská postieľka
 Gauč
-Cello
+Violončelo
 Pokladník
 Skladateľ
 Jaskyňa
@@ -108,8 +107,8 @@ Desktop
 Delfín
 Doktor
 zubár
-Drum
-Dresser
+Bubon
+Príborník
 Dizajnér
 detektív
 dcéra
@@ -118,9 +117,9 @@ Slon
 Náušnice
 Uši
 Oči
-Estate
+Statok
 Prst
-Fox
+Líška
 Šaty
 Žaba
 Ventilátor
@@ -174,14 +173,14 @@ Podpätky
 Bylinky
 Hostiteľ
 Bunda
-Jersey
+Pulóver
 Šperky
 Čeľusť
 Jumper
 sudca
 Odšťavovač
 Klávesnica
-Kid
+Dieťa
 Kengura
 Koala
 Nôž
@@ -212,7 +211,7 @@ Muž
 Model
 Mall
 múzeum
-trhu
+Obchod
 Mesačný svit
 Liek
 Mikroskop
@@ -254,7 +253,6 @@ Lietadlo
 Holub
 Mobilný telefón
 Páv
-Ceruzka
 Prasa
 Vrecúško
 Pagoda
@@ -269,11 +267,10 @@ profesor
 Maliar
 Park
 Rastlina
-Parfum
 Rádio
 Žiletka
 Rebrá
-Rainbow
+Dúha
 Prsteň
 Králik
 Ryža
@@ -293,20 +290,19 @@ Lyžica
 Mydlo
 Piesok
 Ovce
-Sari
+Sárí
 Žalúdok
 Schody
 polievka
-Topánky
+Topánka
 Nožnice
 Vrabec
 Košeľa
 Kufor
 Sporák
-Schody
 Snehuliak
 Sprcha
-Swan
+Labuť
 Oblek
 Sveter
 Dym
@@ -317,11 +313,10 @@ Ponožky
 Mrakodrap
 Škola
 Slnečné okuliare
-Sandále
 Papuče
 Šortky
 sendvič
-Jahodový
+Jahoda
 Špagety
 Krevety
 Saxofón
@@ -335,11 +330,10 @@ Bazén
 Star
 Sky
 Slnko
-Lyžica
 Loď
-Usmievajte sa
+Úsmev
 Tabuľka
-Turecko
+Moriak
 Kravata
 Prsty na nohách
 Nákladné auto
@@ -359,7 +353,7 @@ Divadlo
 Trenčkot
 čaj
 Paradajka
-Násťročný
+Dorastenec
 Tunel
 Chrám
 Mesto
@@ -380,96 +374,62 @@ Obec
 Vozidlo
 Váza
 Peňaženka
-Wolf
+Vlk
 Pás
 Zápästie
-Vodný melón
+Melón
 Veľryba
 Voda
 Krídla
-Whisker
-Sledujte
+Šlahač
+Hodinky
 Žena
 Práčka
 Invalidný vozík
 Čašník
-Rana
+Poranenie
 xylofón
 Zebra
 Zoologická záhrada
 Osoba
 Tenisky
-Stolička
-Ostatné topánky
-Klobúk
-Auto
-Lampa
-Okuliare
 Fľaša
-Stôl
 pohár
-Pouličné osvetlenie
-kabinet
+Osvetlenie
 Polička
 Kabelka
-Satchel
+taška
 Náramok
 Doska
 Obrázok
 Rám
 Prilba
-Kniha
-Rukavice
 Úložný box
-čln
-Kožené topánky
-Kvetina
 Lavička
 Črepníková rastlina
 Misa
 Povodie
-Vlajka
 Vankúš
-Čižmy
-Váza
 Mikrofón
-Náhrdelník
-Prsteň
 Pohár na víno
-Opasok
 Monitor
-Televízia
 Batoh
-Dáždnik
 Semafor
 Hovorca
-Sledujte
-Kravata
 Kôš
-Môže
-Papuče
+Konzerva
 Bicykel
 Stolička
 Hlaveň
-Vedro
 Van
-Gauč
-Sandále
 Košík
-Drum
-Pero
-Ceruzka
 Autobus
 Divoký vták
 Vysoké podpätky
 Motocykel
-Gitara
-Koberec
 mobilný telefón
-Chlieb
 Fotoaparát
-Konzervované
-Nákladné auto
+Zaváranina
 Dopravný kužeľ
 Činel
 Záchranca života
@@ -477,129 +437,87 @@ Uterák
 Plyšová hračka
 Sviečka
 Plachetnica
-laptop
 Markíza
-Posteľ
-Faucet
+Kohútik
 Stan
-Kôň
-Zrkadlo
 Elektrická zásuvka
-Umývadlo
-Apple
 Klimatizácia
-Nôž
 Hokejka
 Pádlovať
-Pickup Truck
-Vidlička
+Nákladiak
 Dopravná značka
-Balón
 Statív
-Pes
-Lyžica
-Hodiny
 Pot
-krava
 Koláč
 Jedálenský stôl
-Ovce
 Vešiak
 Tabuľa
 Tabuľa
 Obrúsok
-Iné ryby
-Oranžová
+ryba
 mandarínka
 Toaletné potreby
-Klávesnica
-Paradajka
 Lucerna
 Strojové vozidlo
-Ventilátor
 Zelená zelenina
 Banán
 Baseballová rukavica
 Lietadlo
-Myška
-Vlak
-Tekvica
 futbal
 Skiboard
-Batožina
 Nočný stolík
 Kanvica na čaj
-Telefón
 Vozík
-Hlavný telefón
+telefón
 Športové auto
 Značka Stop
 Dezert
 Skúter
 Kočík
 Žeriav
-Diaľkové ovládanie
-Chladnička
-Rúra
-Citrón
 Kačica
 Bejzbalová pálka
 Dohľadová kamera
-Cat
 Džbán
 Brokolica
-Klavír
 Pizza
-Slon
 skateboard
 Surfová doska
 Pištoľ
-Topánky na korčuľovanie a lyžovanie
 Plynový sporák
 Donut
 Motýlik
 Mrkva
 WC
-Kite
-Jahodový
-Ostatné lopty
+Šarkan
 Lopata
-Pepper
+Paprika
 Počítačová skrinka
 Toaletný papier
 Čistiace prostriedky
 Paličky
 Mikrovlnná rúra
-Holub
 Bejzbal
-Rezanie boradu
+Doska na sekanie
 Doska na krájanie
 Konferenčný stolík
 Bočný stôl
-Nožnice
-Marker
+Značkovač
 Koláč
 Rebrík
 Snowboard
-Cookies
+Pečivo
 Radiátor
 Požiarny hydrant
 Basketbal
-Zebra
 Hrozno
-Žirafa
-Zemiakový
 Klobása
 Trojkolka
-husle
-Vajcia
 Hasiaci prístroj
-Candy
 Hasičské auto
 Biliard
 Konvertor
 Vaňa
-Invalidný vozík
 Golfový klub
 Aktovka
 Uhorka
@@ -608,10 +526,9 @@ Cigareta
 Štetec na farbu
 Hruška
 Ťažké nákladné auto
-Hamburger
 Extraktor
 Predlžovací kábel
-Tong
+Kliešte
 Tenisová raketa
 Priečinok
 americký futbal
@@ -619,48 +536,31 @@ slúchadlá
 Maska
 Kanvica
 tenis
-Loď
 Hojdačka
 Kávovar
 Snímka
 Preprava
-Cibuľa
 Zelené fazuľky
 Projektor
-Frisbee
+tanier na Frisbee
 Práčka
 Sušiaci stroj
-Kuracie
 Tlačiareň
-Vodný melón
-Saxofón
-Tkanivo
-Zubná kefka
+melón
 Zmrzlina
-Balón
-Cello
 hranolky
-Mierka
 Trofej
 Kapustnica
 Hot dog
-Blender
 Peach
-Ryža
-Peňaženka
-Peňaženka
 volejbal
-Jeleň
 hus
 páska
-Tablet
 Kozmetika
 Trúbka
 Ananás
 Golfová loptička
-Ambulancia
 Parkovací automat
-Mango
 kľúč
 Prekážka
 Rybársky prút
@@ -671,11 +571,8 @@ Tučniak
 Megafón
 Kukurica
 Šalát
-Cesnak
-Swan
 Helikoptéra
 Zelená cibuľa
-sendvič
 Orechy
 Značka obmedzenia rýchlosti
 Indukčný varič
@@ -689,74 +586,60 @@ Smerovač
 modem
 Pokrová karta
 Hriankovač
-Krevety
-Sushi
-Syr
+Suši
 Poznámkový papier
 Čerešňa
 Kliešte
 CD
-Cestoviny
-Kladivo
 Tágo
 Avokádo
-Hamimelon
+melón
 Banka
 Huba
 Skrutkovač
-Mydlo
 záznamník
-Medveď
 baklažán
 Guma na tabuľu
 Kokos
 Zvinovací meter
 Pravítko
-Prasa
 Sprchová hlavica
-Globe
-Chipsy
+Glóbus
+Čipsy
 Steak
 Značka prechodu pre chodcov
 Zošívačka
-Camel
-Formula 1
+Ťava
+Formula
 Granátové jablko
 Umývačka riadu
 Krab
-Hoverboard
+vznášadlo
 Mäsová guľa
 Ryžovar
 Tuba
 Kalkulačka
 Papája
 Antilopa
-Papagáj
 Pečať
 Motýľ
 Činka
-somár
-Lev
 Pisoár
-Delfín
 Elektrická vŕtačka
 Sušič vlasov
 Vaječný koláč
 Medúza
 Bežecký pás
-Zapaľovač
 Grapefruit
 Herná doska
 Mop
 Reďkovka
 Baozi
 Cieľ
-francúzsky
-Jarné závitky
-Opica
-Králik
+francúzsky kľúč
+Závitok
 Peračník
-Yak
+Jak
 Červená kapusta
 Ďalekohľad
 Špargľa
@@ -776,5 +659,5 @@ Durian
 Okra
 Rúž
 Kozmetické zrkadlo
-Curling
+Kurling
 stolný tenis

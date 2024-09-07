@@ -54,7 +54,6 @@ Boy
 Blender
 Bucket
 Bakery
-Bow
 Bridge
 Boat
 Car
@@ -254,7 +253,6 @@ Plane
 Pigeon
 Mobile Phone
 Peacock
-Pencil
 Pig
 Pouch
 Pagoda
@@ -269,7 +267,6 @@ Professor
 Painter
 Park
 Plant
-Parfume
 Radio
 Razor
 Ribs
@@ -303,7 +300,6 @@ Sparrow
 Shirt
 Suitcase
 Stove
-Stairs
 Snowman
 Shower
 Swan
@@ -317,7 +313,6 @@ Stadium
 Skyscraper
 School
 Sunglasses
-Sandals
 Slippers
 Shorts
 Sandwich
@@ -335,7 +330,6 @@ Swimming pool
 Star
 Sky
 Sun
-Spoon
 Ship
 Smile
 Table
@@ -399,17 +393,9 @@ Zebra
 Zoo
 Person
 Sneakers
-Chair
-Other Shoes
-Hat
-Car
-Lamp
-Glasses
 Bottle
-Desk
 Cup
 Street Lights
-Cabinet
 Shelf
 Handbag
 Satchel
@@ -418,58 +404,32 @@ Plate
 Picture
 Frame
 Helmet
-Book
-Gloves
 Storage box
-Boat
-Leather Shoes
-Flower
 Bench
 Potted Plant
 Bowl
 Basin
-Flag
 Pillow
-Boots
-Vase
 Microphone
-Necklace
-Ring
 Wine Glass
-Belt
 Monitor
-Television
 Backpack
-Umbrella
 Traffic Light
 Speaker
-Watch
-Tie
 Trash
 Can
-Slippers
 Bicycle
 Stool
 Barrel
-Bucket
 Van
-Couch
-Sandals
 Basket
-Drum
-Pen
-Pencil
 Bus
 Wild Bird
 High Heels
 Motorcycle
-Guitar
-Carpet
 Cell Phone
-Bread
 Camera
 Canned
-Truck
 Traffic cone
 Cymbal
 Lifesaver
@@ -477,59 +437,36 @@ Towel
 Stuffed Toy
 Candle
 Sailboat
-Laptop
 Awning
-Bed
 Faucet
 Tent
-Horse
-Mirror
 Power outlet
-Sink
-Apple
 Air Conditioner
-Knife
 Hockey Stick
 Paddle
 Pickup Truck
-Fork
 Traffic Sign
-Balloon
 Tripod
-Dog
-Spoon
-Clock
 Pot
-Cow
 Cake
 Dinning Table
-Sheep
 Hanger
 Blackboard
 Whiteboard
 Napkin
 Other Fish
-Orange
 Tangerine
 Toiletry
-Keyboard
-Tomato
 Lantern
 Machinery Vehicle
-Fan
 Green Vegetables
 Banana
 Baseball Glove
 Airplane
-Mouse
-Train
-Pumpkin
 Soccer
 Skiboard
-Luggage
 Nightstand
 Tea pot
-Telephone
 Trolley
 Head Phone
 Sports Car
@@ -538,31 +475,21 @@ Dessert
 Scooter
 Stroller
 Crane
-Remote
-Refrigerator
-Oven
-Lemon
 Duck
 Baseball Bat
 Surveillance Camera
-Cat
 Jug
 Broccoli
-Piano
 Pizza
-Elephant
 Skateboard
 Surfboard
 Gun
-Skating and Skiing shoes
 Gas stove
 Donut
 Bow Tie
 Carrot
 Toilet
 Kite
-Strawberry
-Other Balls
 Shovel
 Pepper
 Computer Box
@@ -570,13 +497,11 @@ Toilet Paper
 Cleaning Products
 Chopsticks
 Microwave
-Pigeon
 Baseball
-Cutting borad
+Cutting board
 Chopping board
 Coffee Table
 Side Table
-Scissors
 Marker
 Pie
 Ladder
@@ -585,21 +510,14 @@ Cookies
 Radiator
 Fire Hydrant
 Basketball
-Zebra
 Grape
-Giraffe
-Potato
 Sausage
 Tricycle
-Violin
-Egg
 Fire Extinguisher
-Candy
 Fire Truck
 Billiards
 Converter
 Bathtub
-Wheelchair
 Golf Club
 Briefcase
 Cucumber
@@ -608,7 +526,6 @@ Cigarette
 Paint Brush
 Pear
 Heavy Truck
-Hamburger
 Extractor
 Extension Cord
 Tong
@@ -619,48 +536,31 @@ earphone
 Mask
 Kettle
 Tennis
-Ship
 Swing
 Coffee Machine
 Slide
 Carriage
-Onion
 Green beans
 Projector
 Frisbee
 Washing Machine
 Drying Machine
-Chicken
 Printer
 Watermelon
-Saxophone
-Tissue
-Toothbrush
 Ice cream
-Balloon
-Cello
 French Fries
-Scale
 Trophy
 Cabbage
 Hot dog
-Blender
 Peach
-Rice
-Wallet
-Purse
 Volleyball
-Deer
 Goose
 Tape
-Tablet
 Cosmetics
 Trumpet
 Pineapple
 Golf Ball
-Ambulance
 Parking meter
-Mango
 Key
 Hurdle
 Fishing Rod
@@ -671,11 +571,8 @@ Penguin
 Megaphone
 Corn
 Lettuce
-Garlic
-Swan
 Helicopter
 Green Onion
-Sandwich
 Nuts
 Speed Limit Sign
 Induction Cooker
@@ -689,30 +586,23 @@ Router
 modem
 Poker Card
 Toaster
-Shrimp
 Sushi
-Cheese
 Notepaper
 Cherry
 Pliers
 CD
-Pasta
-Hammer
 Cue
 Avocado
 Hamimelon
 Flask
 Mushroom
 Screwdriver
-Soap
 Recorder
-Bear
 Eggplant
 Board Eraser
 Coconut
 Tape Measure
 Ruler
-Pig
 Showerhead
 Globe
 Chips
@@ -731,20 +621,15 @@ Tuba
 Calculator
 Papaya
 Antelope
-Parrot
 Seal
 Butterfly
 Dumbbell
-Donkey
-Lion
 Urinal
-Dolphin
 Electric Drill
 Hair Dryer
 Egg tart
 Jellyfish
 Treadmill
-Lighter
 Grapefruit
 Game board
 Mop
@@ -753,8 +638,6 @@ Baozi
 Target
 French
 Spring Rolls
-Monkey
-Rabbit
 Pencil Case
 Yak
 Red Cabbage

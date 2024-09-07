@@ -19,7 +19,7 @@ from PerceptionAgent import PerceptionAgent
 from LookAroundAgent import LookAroundAgent
 from SpeakerAgent import SpeakerAgent
 from NamingAgent import NamingAgent
-#from SeeingAgent import SeeingAgent
+from SeeingAgent import SeeingAgent
 #from DrawingAgent import DrawingAgent
 
 CameraAgent('See3CAM_CU135',1,'robotEye',fps=10,zoom=350) # right eye
@@ -32,7 +32,13 @@ SpeakerAgent('tospeak')
 time.sleep(1)
 NamingAgent('clipFeatures', 'focused')
 time.sleep(1)
-#SeeingAgent('clipFeatures', 'focused', 'picture')
-#time.sleep(1)
+SeeingAgent('robotEye', 'focused', 'picture', 'trajectories')
+time.sleep(1)
 #DrawingAgent('picture', 'dinoPoints')
 #time.sleep(1)
+
+def en():
+    space['language'] = 'en'
+
+def sk():
+    space['language'] = 'sk'

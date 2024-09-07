@@ -23,8 +23,9 @@ if __name__ == "__main__":
     time.sleep(1)
     agent = SpeakerAgent('text')
     time.sleep(1)
-    space['text']='three times speaking'
-    space['text']='three times speaking'
-    space['text']='three times speaking'
+    text = 'toto poviem tri razy' if space['language'] == 'sk' else 'three times speaking' 
+    space['text']= text
+    space['text']= text
+    space['text']= text
     time.sleep(10)
     agent.stop()

@@ -175,3 +175,5 @@ dino_deits8-224-final.onnx
 
 # data files
 wipeout.npy
+picture.txt
+*.png

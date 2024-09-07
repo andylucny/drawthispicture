@@ -78,18 +78,14 @@ class LookAroundAgent(Agent):
         angular_speed = 0.04
         limit = 2.0 
         
-        in_the_front_off = 0
         if np.abs(delta_degrees_x) > limit:
             setAngle("head_z", head_x + delta_degrees_x, angular_speed)
-        else:
-            in_the_front_off += 1
         if np.abs(delta_degrees_y) > limit:
             setAngle("head_y", head_y + delta_degrees_y, angular_speed)
-        else:
-            in_the_front_off += 1
             
-        timeout = max(np.abs(delta_degrees_x),np.abs(delta_degrees_y))/(1000*angular_speed)
-        if in_the_front_off == 2:
-            space(validity=timeout*1.3)[self.nameFocused] = True
+        focus_limit = 5.0 
+        if np.abs(delta_degrees_x) <= focus_limit and np.abs(delta_degrees_y) <= focus_limit:
+            space(validity=1.0)[self.nameFocused] = True
 
+        timeout = max(np.abs(delta_degrees_x),np.abs(delta_degrees_y))/(1000*angular_speed)
         time.sleep(timeout)

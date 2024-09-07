@@ -1,7 +1,8 @@
 import pyttsx3
 import os
+from agentspace import space
 
-language = 'sk'
+space['language'] = 'sk'
     
 def speak(text):
     engine = pyttsx3.init()
@@ -22,7 +23,7 @@ def speak(text):
     voice_names = [ voice.name for voice in voices ] 
     #print(voice_names)
     
-    if language == 'sk':
+    if space(default='en')['language'] == 'sk':
         try:
             speaker = voice_names.index('Microsoft Filip - Slovak (Slovakia)')
         except ValueError:

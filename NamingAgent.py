@@ -4,6 +4,7 @@ import time
 import os
 
 from clip import image_clip, text_clip, cosine_similarity, clip
+from nicomover import simulated
 
 def loadNames(fname):
     with open(fname,'rt',encoding='utf-8') as f:
@@ -11,7 +12,7 @@ def loadNames(fname):
 
 class NamingAgent(Agent):
 
-    def __init__(self, nameFeatures, nameFocused, clip_threshold=0.2, judgement_threshold=0.7):
+    def __init__(self, nameFeatures, nameFocused, clip_threshold=0.2, judgement_threshold=0.5):
         self.nameFeatures = nameFeatures
         self.nameFocused = nameFocused
         self.clip_threshold = clip_threshold
@@ -43,39 +44,66 @@ class NamingAgent(Agent):
 
     def lookAround(self):
         space['dontLook'] = False
-
-    def senseSelectAct(self):
-        query = space[self.nameFeatures]
-        if query is None:
-            return
         
+    def nameIt(self, query):
+        top = 3
         probabilities = cosine_similarity(query, self.wipeout)
-        index = np.argmax(probabilities)
+        indices_above_threshold = np.where(probabilities >= self.clip_threshold)[0]
+        filtered_probabilities = probabilities[indices_above_threshold]
+        top_filtered_indices = np.argsort(filtered_probabilities)[-top:][::-1]
+        top_indices = indices_above_threshold[top_filtered_indices]
         
-        if probabilities[index] < self.clip_threshold:
-            index = -1
-
-        if index != -1:
-            print(self.en[index],f'{probabilities[index]:.3f}')
-        
-        if index != -1 and index not in self.judgement:
-            self.judgement[index] = 0
+        for i in top_indices:
+            if i not in self.judgement:
+                self.judgement[i] = 0
 
         remove_indices = []
         for i in self.judgement:
-            self.judgement[i] = self.judgement[i] * 0.9 + 1 if i == index else -1
+            self.judgement[i] = self.judgement[i] * 0.9 + 1 if i in top_indices else -1
             if self.judgement[i] <= -self.judgement_threshold:
                 remove_indices.append(i)
                 
         for i in remove_indices:
             del self.judgement[i]
         
-        if len(self.judgement) == 0:
-            self.last_index = -1
-            
+        promissing = {i:self.judgement[i] for i in top_indices if i in self.judgement}
+        index = max(promissing, key=promissing.get, default=-1)
+        return index, probabilities[index] if index != -1 else 0.0
+
+    def senseSelectAct(self):
+        query = space[self.nameFeatures]
+        if query is None:
+            return
+        
+        index, confidence = self.nameIt(query)
+
+        if index != -1:
+            print(self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
+        #else:
+        #    self.last_index = -1
+
+        seeing_picture = False
+        if index != -1 and self.en[index] == "Whiteboard":
+            picture = space['picture']
+            if not picture is None:
+                picture_query = image_clip(picture)
+                index, confidence = self.nameIt(picture_query)
+                if index != -1:
+                    seeing_picture = True
+                    print('picture',self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
+
         if index != -1 and index in self.judgement:
-            if self.judgement[index] > self.judgement_threshold:
-                if self.last_index != index:
-                    text = f'Toto je asi {self.sk[index]}'
-                    self.speak(text)
-                    time.sleep(10)
+            if self.judgement[index] > self.judgement_threshold or seeing_picture:
+                if self.last_index != index and self.en[index] != 'Desk': # Desk is in the front of the robot
+                    if simulated or space(default=False)[self.nameFocused] or seeing_picture:
+                        if space(default='en')['language'] == 'sk':
+                            text = f'Toto je asi {self.sk[index]}.'
+                            if seeing_picture:
+                                text += '. Nakreslíme to!'
+                        else:
+                            text = f'Perhaps, this is a{"n" if self.en[index][0] in ["a","e","i","o","u"] else ""} {self.en[index]}.'
+                            if seeing_picture:
+                                text += ". Let's draw it!"
+                        self.speak(text)
+                        self.last_index = index
+                        time.sleep(8)
