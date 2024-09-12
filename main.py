@@ -20,7 +20,8 @@ from LookAroundAgent import LookAroundAgent
 from SpeakerAgent import SpeakerAgent
 from NamingAgent import NamingAgent
 from SeeingAgent import SeeingAgent
-#from DrawingAgent import DrawingAgent
+from TouchAgent import TouchAgent
+from DrawingAgent import DrawingAgent
 
 CameraAgent('See3CAM_CU135',1,'robotEye',fps=10,zoom=350) # right eye
 time.sleep(1)
@@ -30,15 +31,20 @@ LookAroundAgent('dinoPoints','dontLook','focused')
 time.sleep(1)
 SpeakerAgent('tospeak')
 time.sleep(1)
-NamingAgent('clipFeatures', 'focused')
+NamingAgent('clipFeatures', 'focused', 'picture')
 time.sleep(1)
 SeeingAgent('robotEye', 'focused', 'picture', 'trajectories')
 time.sleep(1)
-#DrawingAgent('picture', 'dinoPoints')
-#time.sleep(1)
+TouchAgent()
+time.sleep(1)
+DrawingAgent('trajectories')
+time.sleep(1)
 
 def en():
     space['language'] = 'en'
 
 def sk():
     space['language'] = 'sk'
+
+time.sleep(2)
+space(validity=0.1)['tospeak'] = 'Ideme na to!' if space(default='en')['language'] == 'sk' else "Let's go interacting!"

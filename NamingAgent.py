@@ -12,9 +12,10 @@ def loadNames(fname):
 
 class NamingAgent(Agent):
 
-    def __init__(self, nameFeatures, nameFocused, clip_threshold=0.2, judgement_threshold=0.5):
+    def __init__(self, nameFeatures, nameFocused, namePicture, clip_threshold=0.2, judgement_threshold=0.5):
         self.nameFeatures = nameFeatures
         self.nameFocused = nameFocused
+        self.namePicture = namePicture
         self.clip_threshold = clip_threshold
         self.judgement_threshold = judgement_threshold*10
         super().__init__()
@@ -84,7 +85,7 @@ class NamingAgent(Agent):
 
         seeing_picture = False
         if index != -1 and self.en[index] == "Whiteboard":
-            picture = space['picture']
+            picture = space[self.namePicture]
             if not picture is None:
                 picture_query = image_clip(picture)
                 index, confidence = self.nameIt(picture_query)
@@ -94,7 +95,7 @@ class NamingAgent(Agent):
 
         if index != -1 and index in self.judgement:
             if self.judgement[index] > self.judgement_threshold or seeing_picture:
-                if self.last_index != index and self.en[index] != 'Desk': # Desk is in the front of the robot
+                if self.last_index != index and self.en[index] != 'Desk' and self.en[index] != 'Tablet': # Desk is in the front of the robot
                     if simulated or space(default=False)[self.nameFocused] or seeing_picture:
                         if space(default='en')['language'] == 'sk':
                             text = f'Toto je asi {self.sk[index]}.'

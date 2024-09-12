@@ -26,9 +26,9 @@ class SeeingAgent(Agent):
         if rect is not None:
             if space(default=False)[self.nameFocused]:
                 img = extractRectangle(frame,rect)
-                space(validity = 1.0)[self.namePicture] = img
                 trajectories = extract_trajectories(img)
                 if trajectories:
+                    space(validity = 1.0)[self.namePicture] = img
                     space(validity = 1.0)[self.nameTrajectories] = trajectories
 
                 result = visualize_trajectories(trajectories, img.shape)

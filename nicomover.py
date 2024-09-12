@@ -49,12 +49,16 @@ def load_movement(filename):
         return postures
     raise(BaseException(filename+" does not exist"))
 
-def enableTorque(dofs):
+def enableTorque(dofs=None):
+    if dofs is None:
+        dofs = robot.getJointNames()
     for dof in dofs:
         if dof != 'timestamp':
             robot.enableTorque(dof)
 
-def disableTorque(dofs):
+def disableTorque(dofs=None):
+    if dofs is None:
+        dofs = robot.getJointNames()
     for dof in dofs:
         if dof != 'timestamp':
             robot.disableTorque(dof)
@@ -91,10 +95,19 @@ def current_posture(dofs=None):
     }
     return posture
     
-def move_to_posture(target_posture, speed=0.04):
+def move_to_posture(target_posture, speed=0.04, wait=False):
     for dof in target_posture:
         if dof != 'timestamp':
             setAngle(dof, target_posture[dof], speed)
+    if wait:
+        current_posture = {
+            dof : getAngle(dof) for dof in target_posture
+        }
+        durations = [ 
+            abs(current_posture[dof] - target_posture[dof]) / (1260*speed) for dof in current_posture 
+        ]
+        duration = np.max(durations)
+        time.sleep(duration)
 
 def move_to_posture_through_time(target_posture, duration):
     if duration == 0:
