@@ -1,10 +1,12 @@
 import numpy as np
+import cv2
 from agentspace import space, Agent
 import time
 import os
 
 from clip import image_clip, text_clip, cosine_similarity, clip
 from nicomover import simulated
+from sk import putText
 
 def loadNames(fname):
     with open(fname,'rt',encoding='utf-8') as f:
@@ -78,13 +80,11 @@ class NamingAgent(Agent):
         
         index, confidence = self.nameIt(query)
 
-        if index != -1:
-            print(self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
-        #else:
-        #    self.last_index = -1
+        #if index != -1:
+        #    print(self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
 
         seeing_picture = False
-        if index != -1 and self.en[index] == "Whiteboard":
+        if index != -1 and (self.en[index] == "Whiteboard" or self.en[index] == "Computer Box" or self.en[index] == 'Storage box'):
             picture = space[self.namePicture]
             if not picture is None:
                 picture_query = image_clip(picture)
@@ -93,10 +93,26 @@ class NamingAgent(Agent):
                     seeing_picture = True
                     print('picture',self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
 
+        image = space['robotEye']
+        if image is not None:
+            y = 40
+            for choice in self.judgement:
+                score = self.judgement[choice]
+                if score > 0:
+                    color = (0,0,255) if score > self.judgement_threshold else (0,255,255)
+                    if space['language'] != 'sk':
+                        cv2.putText(image,f'{self.en[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
+                    else:
+                        putText(image,f'{self.sk[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
+                    y += 40
+            cv2.imshow('Naming',image)
+            cv2.waitKey(1)
+        
         if index != -1 and index in self.judgement:
             if self.judgement[index] > self.judgement_threshold or seeing_picture:
-                if self.last_index != index and self.en[index] != 'Desk' and self.en[index] != 'Tablet': # Desk is in the front of the robot
+                if self.last_index != index and self.en[index] != 'Desk' and self.en[index] != 'Tablet' and self.en[index] != 'laptop' and self.en[index] != 'Blackboard' and self.en[index] != 'Whiteboard' and self.en[index] != 'Computer Box' and self.en[index] != 'Storage box': # Desk is in the front of the robot
                     if simulated or space(default=False)[self.nameFocused] or seeing_picture:
+                        print(self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
                         if space(default='en')['language'] == 'sk':
                             text = f'Toto je asi {self.sk[index]}.'
                             if seeing_picture:
@@ -107,4 +123,10 @@ class NamingAgent(Agent):
                                 text += ". Let's draw it!"
                         self.speak(text)
                         self.last_index = index
-                        time.sleep(8)
+                        
+                        for t in [5,54,543,5432,54321]:
+                            if image is not None:
+                                cv2.putText(image,f'taking rest {t}',(10,y),0,1.0,color,2)
+                                cv2.imshow('Naming',image)
+                                cv2.waitKey(1)
+                            time.sleep(1)

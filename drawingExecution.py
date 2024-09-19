@@ -82,16 +82,19 @@ def scale_to_max_extent(actual_width, actual_height, max_width, max_height):
 def draw_trajectories(trajectories):
     all_points = [ point for trajectory in trajectories for point in trajectory ]
     rect = cv2.boundingRect(np.array(all_points))
-    resolution, scale_factor = scale_to_max_extent(rect[2], rect[3], 2400, 1350)
-    scale_factor *= 0.8
-
+    upper_border = 240
+    resolution, scale_factor = scale_to_max_extent(rect[2], rect[3], 2400, 1350-upper_border)
+    points_center = np.mean((all_points-np.array(rect[:2],np.float32))*scale_factor,axis=0)
+    center = np.array((2400,1350),np.float32)/2
+    offset = center - points_center
     enableTorque()
     form_hand()
     get_ready()
     sorted_trajectories = sorted(trajectories, key=len, reverse=True)
     for trajectory in sorted_trajectories:
-        points = (np.array(trajectory,np.float32) - np.array(rect[:2],np.float32)) * scale_factor + np.array((240,0),np.float32)
-        postures = points2postures(points, resolution)
+        points = (np.array(trajectory,np.float32) - np.array(rect[:2],np.float32)) * scale_factor
+        points += offset
+        postures = points2postures(points, (2400,1350))
         if len(postures) == 0:
             continue
         move_arm(up(postures[0]))

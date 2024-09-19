@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import random
+import time
 
 def huang_thresholding(image):
     # Compute the histogram
@@ -60,7 +61,7 @@ def get_trajectories(skeleton_image):
                     trajectories.append(trajectory)
     
     return trajectories
-    
+
 def extract_trajectories(img):
     # Apply Huang thresholding
     img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -70,7 +71,7 @@ def extract_trajectories(img):
     drawing_percentage = (binary.size - cv2.countNonZero(binary)) / binary.size
     if drawing_percentage > 0.1:
         return []
-    #cv2.imwrite('binary.png',binary)
+    cv2.imwrite(f'logs/binary{int(time.time())}.png',binary)
 
     # Erode the image using a 5x5 structural element
     kernel = np.ones((5, 5), np.uint8)
@@ -88,7 +89,7 @@ def extract_trajectories(img):
 
     # Perform skeletonization on the remaining areas
     skeleton = cv2.ximgproc.thinning(~eroded)
-    #cv2.imwrite('skeleton.png',skeleton)
+    cv2.imwrite(f'logs/skeleton{int(time.time())}.png',skeleton)
 
     # Turn skeleton into trajectories
     trajectories = get_trajectories(skeleton)

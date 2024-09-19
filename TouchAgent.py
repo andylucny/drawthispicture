@@ -6,6 +6,14 @@ import ctypes
 import numpy as np
 import cv2
 
+def clear():
+    try:
+        screen.fill((0, 0, 0)) 
+        pygame.display.flip()
+    except:
+        pass
+    color_index = 0
+
 class TouchAgent(Agent):
             
     def init(self):
@@ -27,6 +35,7 @@ class TouchAgent(Agent):
         ctypes.windll.user32.SetWindowLongA(HWND,GWL_EXSTYLE,styles)
         screen_info = pygame.display.Info()
         width, height = screen_info.current_w, screen_info.current_h # 
+        global color_index
         color_index = 0
         colors = [ (255,0,0), (0,255,0), (0,255,255), (80,80,255) ] # Red, Green, Cyan, Light Blue
         print('initialized')

@@ -3,6 +3,7 @@ import numpy as np
 from agentspace import space, Agent
 
 from drawingExecution import draw_trajectories
+from TouchAgent import clear
 
 class DrawingAgent(Agent):
 
@@ -21,16 +22,22 @@ class DrawingAgent(Agent):
         if trajectories is None:
             return
 
+        space['dontLook'] = True
+        clear()
         draw_trajectories(trajectories)
+        space['dontLook'] = None
             
         if space(default='en')['language'] == 'sk':
             text = 'Hotovo. Dáme si oddych.'
         else:
             text = "Done. Let's take a break."
-        self.speak(text)        
+        self.speak(text)  
         
+        space['picture'] = None
+        print("printing takes a rest for one minute from now")
         time.sleep(60)
-        space[self.nameTrajectories] = None            
+        space[self.nameTrajectories] = None
+        print("printing activated again")
         
 if __name__ == "__main__":
     

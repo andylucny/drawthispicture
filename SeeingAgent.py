@@ -1,9 +1,11 @@
 import numpy as np
 import cv2
+import time
 from agentspace import space, Agent
 
 from rectangleDetection import dominantRectangle, drawRectangle, extractRectangle
 from drawingExtraction import extract_trajectories, visualize_trajectories
+from imageSimilarity import similarImages
 
 class SeeingAgent(Agent):
 
@@ -18,22 +20,44 @@ class SeeingAgent(Agent):
         space.attach_trigger(self.nameImage,self)
  
     def senseSelectAct(self):
+        
+        if space[self.nameTrajectories] is not None: # we have already decided to draw
+            return
+    
         frame = space[self.nameImage]
         if frame is None:
             return
             
         rect = dominantRectangle(frame)
         if rect is not None:
-            if space(default=False)[self.nameFocused]:
+            print('rect found')
+            if space(default=False)[self.nameFocused] or space(default=False)['dontLook']:
+                print('focused')
                 img = extractRectangle(frame,rect)
                 trajectories = extract_trajectories(img)
                 if trajectories:
-                    space(validity = 1.0)[self.namePicture] = img
-                    space(validity = 1.0)[self.nameTrajectories] = trajectories
-
-                result = visualize_trajectories(trajectories, img.shape)
-                cv2.imshow('picture',result)
-
+                    candidate = space['candidate']
+                    if candidate is None:
+                        print('we have a candidate, waiting...')
+                        space(validity=3.0)['dontLook'] = True
+                        space(validity=3.0)['candidate'] = img
+                        time.sleep(0.5)
+                    else:
+                        print('testing the candidate...')
+                        similarity = similarImages(img, candidate)
+                        print(f'similarity: {similarity:.2f}')
+                        if similarity > 0.3:
+                            space[self.namePicture] = img
+                            space[self.nameTrajectories] = trajectories
+                            space['dontLook'] = False
+                            print('we have trajectories')
+                            result = visualize_trajectories(trajectories, img.shape)
+                            cv2.imshow('picture',result)
+                            cv2.waitKey(1)
+                        else:
+                            print('the candidate failed, trying another one and waiting...')
+                            space(validity=3.0)['candidate'] = img
+                            time.sleep(0.5)
             drawRectangle(frame,rect)
         
         cv2.imshow('seen',frame)
