@@ -27,6 +27,8 @@ class SeeingAgent(Agent):
         frame = space[self.nameImage]
         if frame is None:
             return
+        
+        frame = np.copy(frame)
             
         rect = dominantRectangle(frame)
         if rect is not None:

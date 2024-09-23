@@ -11,7 +11,7 @@ def quit():
 
 def signal_handler(signal, frame): 
     quit()
-    
+
 signal.signal(signal.SIGINT, signal_handler)
 
 from CameraAgent import CameraAgent

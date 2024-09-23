@@ -2,8 +2,10 @@ import numpy as np
 import time
 from agentspace import Agent, space
 
-from nicomover import setAngle, getAngle, enableTorque, release, simulated
+from nicomover import setAngle, getAngle, enableTorque, release, simulated, park
 from headlimiter import head_z_limits
+
+park()
 
 class LookAroundAgent(Agent):
 
@@ -16,6 +18,7 @@ class LookAroundAgent(Agent):
 
     def init(self):
         
+        self.laziness = 0
         space.attach_trigger(self.namePoints,self)
 
     def senseSelectAct(self):
@@ -31,6 +34,7 @@ class LookAroundAgent(Agent):
         if point is None:
             return
         
+        #print('looking around',time.time())
         x, y = point
         
         head_x = getAngle("head_z")
@@ -77,11 +81,13 @@ class LookAroundAgent(Agent):
         
         angular_speed = 0.04
         limit = 2.0 
-        
-        if np.abs(delta_degrees_x) > limit:
-            setAngle("head_z", head_x + delta_degrees_x, angular_speed)
-        if np.abs(delta_degrees_y) > limit:
-            setAngle("head_y", head_y + delta_degrees_y, angular_speed)
+
+        self.laziness -= 1.0
+        if reset_x or reset_y or self.laziness <= 0:
+            if np.abs(delta_degrees_x) > limit:
+                setAngle("head_z", head_x + delta_degrees_x, angular_speed)
+            if np.abs(delta_degrees_y) > limit:
+                setAngle("head_y", head_y + delta_degrees_y, angular_speed)
             
         focus_limit = 5.0 
         if np.abs(delta_degrees_x) <= focus_limit and np.abs(delta_degrees_y) <= focus_limit:
@@ -89,3 +95,5 @@ class LookAroundAgent(Agent):
 
         timeout = max(np.abs(delta_degrees_x),np.abs(delta_degrees_y))/(1000*angular_speed)
         time.sleep(timeout)
+        
+        self.laziness = np.random.normal(0,3)

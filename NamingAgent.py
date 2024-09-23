@@ -95,6 +95,7 @@ class NamingAgent(Agent):
 
         image = space['robotEye']
         if image is not None:
+            image = np.copy(image)
             y = 40
             for choice in self.judgement:
                 score = self.judgement[choice]
@@ -110,7 +111,11 @@ class NamingAgent(Agent):
         
         if index != -1 and index in self.judgement:
             if self.judgement[index] > self.judgement_threshold or seeing_picture:
-                if self.last_index != index and self.en[index] != 'Desk' and self.en[index] != 'Tablet' and self.en[index] != 'laptop' and self.en[index] != 'Blackboard' and self.en[index] != 'Whiteboard' and self.en[index] != 'Computer Box' and self.en[index] != 'Storage box': # Desk is in the front of the robot
+                if (self.last_index != index or seeing_picture) and \
+                    self.en[index] != 'Desk' and self.en[index] != 'Tablet' and self.en[index] != 'laptop' and \
+                    self.en[index] != 'Laptop' and self.en[index] != 'Blackboard' and self.en[index] != 'Whiteboard' and \
+                    self.en[index] != 'Computer Box' and self.en[index] != 'Storage box' and \
+                    self.en[index] != 'Coffee Table': # Desk and others are in the front of the robot
                     if simulated or space(default=False)[self.nameFocused] or seeing_picture:
                         print(self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
                         if space(default='en')['language'] == 'sk':

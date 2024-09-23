@@ -65,6 +65,7 @@ def get_ready():
     move_to_posture(dict(zip(dofs,posture)), speed=0.04, wait=True)
 
 def move_arm(posture):
+    #print('move head',time.time())
     dofs = ['r_shoulder_z', 'r_shoulder_y', 'r_arm_x', 'r_elbow_y', 'r_wrist_z', 'r_wrist_x', 'head_z', 'head_y']
     move_to_posture(dict(zip(dofs,posture)), speed=0.03, wait=True)
 

@@ -22,10 +22,10 @@ class DrawingAgent(Agent):
         if trajectories is None:
             return
 
-        space['dontLook'] = True
+        space(priority=5)['dontLook'] = True
         clear()
         draw_trajectories(trajectories)
-        space['dontLook'] = None
+        space(priority=5)['dontLook'] = None
             
         if space(default='en')['language'] == 'sk':
             text = 'Hotovo. Dáme si oddych.'
@@ -37,6 +37,12 @@ class DrawingAgent(Agent):
         print("printing takes a rest for one minute from now")
         time.sleep(60)
         space[self.nameTrajectories] = None
+
+        if space(default='en')['language'] == 'sk':
+            text = 'Dobre.'
+        else:
+            text = "Ready."
+        self.speak(text)  
         print("printing activated again")
         
 if __name__ == "__main__":

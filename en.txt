@@ -661,3 +661,4 @@ Lipstick
 Cosmetics Mirror
 Curling
 Table Tennis
+Teapot
