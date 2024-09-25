@@ -20,6 +20,7 @@ class NamingAgent(Agent):
         self.namePicture = namePicture
         self.clip_threshold = clip_threshold
         self.judgement_threshold = judgement_threshold*10
+        self.drawing_announced = False
         super().__init__()
     
     def init(self):
@@ -84,13 +85,17 @@ class NamingAgent(Agent):
         #    print(self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
 
         seeing_picture = False
+        just_drawing = space['trajectories'] is not None
+        if not just_drawing:
+            self.drawing_announced = False
         if index != -1 and (self.en[index] == "Whiteboard" or self.en[index] == "Computer Box" or self.en[index] == 'Storage box'):
             picture = space[self.namePicture]
-            if not picture is None:
+            if (not self.drawing_announced) and (not picture is None):
                 picture_query = image_clip(picture)
                 index, confidence = self.nameIt(picture_query)
                 if index != -1:
                     seeing_picture = True
+                    self.drawing_announced = True
                     print('picture',self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
 
         image = space['robotEye']

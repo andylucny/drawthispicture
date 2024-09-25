@@ -32,9 +32,9 @@ class SeeingAgent(Agent):
             
         rect = dominantRectangle(frame)
         if rect is not None:
-            print('rect found')
+            #print('rect found')
             if space(default=False)[self.nameFocused] or space(default=False)['dontLook']:
-                print('focused')
+                #print('focused')
                 img = extractRectangle(frame,rect)
                 trajectories = extract_trajectories(img)
                 if trajectories:

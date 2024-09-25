@@ -42,9 +42,9 @@ def huang_thresholding(image):
     
 def get_trajectories(skeleton_image):
     trajectories = []
-    contours, _ = cv2.findContours(skeleton_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-    for contour in contours:
-        if len(contour) > 10:
+    contours, hierarchy = cv2.findContours(skeleton_image, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
+    for contour, indices in zip(contours,hierarchy[0]):
+        if indices[3] == -1 and len(contour) > 10:
             visited = set()
             trajectory = []
             for countour_point in contour:
