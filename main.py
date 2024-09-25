@@ -46,5 +46,13 @@ def en():
 def sk():
     space['language'] = 'sk'
 
+def suspend():
+    space(priority=10)['robotEye'] = np.zeros((480,640,3),np.uint8)
+
+def resume():
+    space(priority=10)['robotEye'] = None
+    space(validity=0.1)['tospeak'] = 'Ideme na to!' if space(default='en')['language'] == 'sk' else "Let's go interacting!"
+
 time.sleep(2)
-space(validity=0.1)['tospeak'] = 'Ideme na to!' if space(default='en')['language'] == 'sk' else "Let's go interacting!"
+resume()
+

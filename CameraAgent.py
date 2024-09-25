@@ -106,6 +106,7 @@ class CameraAgent(Agent):
             if self.fps == 0:
                 self.fps = 10 # to be sure
         print('fps:',self.fps)
+        firstTime = True
         while not self.stopped:
             # Grab a frame
             ret, img = self.camera.read()
@@ -116,6 +117,9 @@ class CameraAgent(Agent):
             
             # sample it onto blackboard
             space(validity=3.0/self.fps)[self.nameImage] = img
+            if firstTime:
+                print(f'camera resolution: {img.shape[1]}x{img.shape[0]}')
+                firstTime = False
             
         self.camera.release()
  
