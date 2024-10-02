@@ -92,6 +92,23 @@ def draw_trajectories(trajectories):
     form_hand()
     get_ready()
     sorted_trajectories = sorted(trajectories, key=len, reverse=True)
+    for i, trajectory in enumerate(sorted_trajectories):
+        if i == 0 or i == len(sorted_trajectories)-1:
+            continue
+        min_distance=1e9
+        next_i = i
+        for j in range(i,len(sorted_trajectories)):
+            list1 = np.array(sorted_trajectories[i-1])
+            list2 = np.array(sorted_trajectories[j])
+            diffs = list1[:, np.newaxis, :] - list2[np.newaxis, :, :]
+            distances = np.linalg.norm(diffs, axis=2)
+            distance = np.min(distances)
+            if distance > min_distance:
+                min_distance = distance
+                next_i = j
+        if next_i != i:
+            sorted_trajectories[i], sorted_trajectories[next_i] = sorted_trajectories[next_i], sorted_trajectories[i]
+        
     for trajectory in sorted_trajectories:
         points = (np.array(trajectory,np.float32) - np.array(rect[:2],np.float32)) * scale_factor
         points += offset
@@ -112,8 +129,10 @@ if __name__ == '__main__':
     def quit():
         os._exit(0)
 
-    from TouchAgent import TouchAgent
-    TouchAgent()
+    from nicomover import simulated
+    if not simulated:
+        from TouchAgent import TouchAgent
+        TouchAgent()
 
     with open('picture.txt','rt') as f:
         trajectories = eval(f.read())
