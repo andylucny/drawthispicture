@@ -30,7 +30,6 @@ providers = ['CPUExecutionProvider']
 touch_model = ort.InferenceSession('nico-touch-right-arm.onnx', providers=providers)
 
 def points2postures(points, resolution):
-    global inp, posture
     inp = points / np.array([resolution],np.float32)
     out = touch_model.run(None, {"input": inp})[0]
     postures = []
