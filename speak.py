@@ -45,11 +45,13 @@ def speak(text):
                     speaker = 0
     
     #print('speaker:',speaker, voices[speaker].name)
+    space['speaking'] = True
     engine.setProperty('voice', voices[speaker].id)
     engine.say(text)
     print('speaking on <'+text+'>')
     engine.runAndWait()
     print('speaking off')
+    space['speaking'] = False
 
 if __name__ == "__main__":
     speak('Na holi sa pasie ovca.')

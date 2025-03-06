@@ -118,6 +118,7 @@ class NamingAgent(Agent):
             if self.judgement[index] > self.judgement_threshold or seeing_picture:
                 if (self.last_index != index or seeing_picture) and \
                     self.en[index] != 'Desk' and self.en[index] != 'Tablet' and self.en[index] != 'laptop' and \
+                    self.en[index] != 'Monitor' and self.en[index] != 'Projector' and \
                     self.en[index] != 'Laptop' and self.en[index] != 'Blackboard' and self.en[index] != 'Whiteboard' and \
                     self.en[index] != 'Computer Box' and self.en[index] != 'Storage box' and \
                     self.en[index] != 'Coffee Table': # Desk and others are in the front of the robot

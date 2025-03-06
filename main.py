@@ -22,6 +22,7 @@ from NamingAgent import NamingAgent
 from SeeingAgent import SeeingAgent
 from TouchAgent import TouchAgent
 from DrawingAgent import DrawingAgent
+from LipsAgent import LipsAgent
 
 CameraAgent('See3CAM_CU135',1,'robotEye',fps=10,zoom=350) # right eye
 time.sleep(1)
@@ -38,6 +39,8 @@ time.sleep(1)
 TouchAgent()
 time.sleep(1)
 DrawingAgent('trajectories')
+time.sleep(1)
+LipsAgent() # move with lips
 time.sleep(1)
 
 def en():
