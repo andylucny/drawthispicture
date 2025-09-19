@@ -1,4 +1,5 @@
 import os
+import shutil
 import io
 import requests
 import zipfile
@@ -22,7 +23,9 @@ def download_zipfile(path,url):
     print("downloaded")
     
 def download_nico_touch_model():
-    download_zipfile('nico-touch-right-arm.onnx','http://www.agentspace.org/download/nico-touch.zip')
+    #download_zipfile('nico-touch-right-arm.onnx','http://www.agentspace.org/download/nico-touch.zip')
+    if not os.path.exists('nico-touch-right-arm.onnx'):
+        shutil.copy('training/perceptron.onnx', 'nico-touch-right-arm.onnx')
 
 download_nico_touch_model()
 
@@ -38,7 +41,7 @@ def points2postures(points, resolution):
             continue # not possible to reach
         if posture[5] > 1.0: # wrist-x
             posture[5] = 1.0
-        posture = list(np.round(posture[:6]*180)) + [ round((inp_i[0]-0.5)*35), round((inp_i[1]-0.5)*5)-30 ]
+        posture = list(np.round(posture[:7]*180)) + [ round((inp_i[0]-0.5)*35), round((inp_i[1]-0.5)*5)-30 ]
         postures.append(posture)
     return postures
 
@@ -65,7 +68,7 @@ def get_ready():
 
 def move_arm(posture):
     #print('move head',time.time())
-    dofs = ['r_shoulder_z', 'r_shoulder_y', 'r_arm_x', 'r_elbow_y', 'r_wrist_z', 'r_wrist_x', 'head_z', 'head_y']
+    dofs = ['r_shoulder_z', 'r_shoulder_y', 'r_arm_x', 'r_elbow_y', 'r_wrist_z', 'r_wrist_x', 'r_indexfinger_x', 'head_z', 'head_y']
     move_to_posture(dict(zip(dofs,posture)), speed=0.03, wait=True)
 
 def scale_to_max_extent(actual_width, actual_height, max_width, max_height):
