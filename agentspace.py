@@ -111,6 +111,7 @@ class Agent:
         self.timer = None
         self.proxies = Queue()
         self.t = threading.Thread(name="agent", target=self.run)
+        self.t.daemon = True
         self.t.start()
         
     def attach_timer(self, period):
