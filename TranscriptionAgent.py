@@ -9,7 +9,8 @@ class TranscriptionAgent(Agent):
         super().__init__()
         
     def init(self):
-        self.audio_model = whisper.load_model("base").to('cuda') # "base", "small", "medium", or "large"
+        print('loading whisper')
+        self.audio_model = whisper.load_model("medium").to('cuda') # "base", "small", "medium", or "large" # large sa nevojde do 8GB
         print('ready to transcript')
         space.attach_trigger(self.nameAudio,self)
  
@@ -17,9 +18,16 @@ class TranscriptionAgent(Agent):
         audio_data = space[self.nameAudio]
         if audio_data is not None:
             if len(audio_data) > 0:
-                print('transcripting...')
-                result = self.audio_model.transcribe(audio_data,language='slovak') # 'english'
-                print('...transcripted:',result['text'])
+                #print('transcripting')
+                language = space(default='sk')['language']
+                result = self.audio_model.transcribe(audio_data,language='slovak' if language == 'sk' else 'english')
+                print('transcripted:',result['text'])
                 space(validity=1.0)[self.nameText] = result['text']
                 #print(result['text'])
 
+if __name__ == '__main__':
+    import time
+    from ListenerAgent import ListenerAgent
+    ListenerAgent('audio',2)
+    time.sleep(1)
+    TranscriptionAgent('audio','text')

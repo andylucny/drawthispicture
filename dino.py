@@ -17,7 +17,7 @@ def download_DinoViT_model():
 
 download_DinoViT_model()
 
-providers = ['CUDAExecutionProvider' if ort.get_device() == 'GPU' else 'CPUExecutionProvider']
+providers = ['CPUExecutionProvider'] #['CUDAExecutionProvider' if ort.get_device() == 'GPU' else 'CPUExecutionProvider']
 session = ort.InferenceSession("dino_deits8-224-final.onnx", providers=providers)
 input_names = [input.name for input in session.get_inputs()] 
 output_names = [output.name for output in session.get_outputs()] 

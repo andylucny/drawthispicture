@@ -25,6 +25,7 @@ from DrawingAgent import DrawingAgent
 from LipsAgent import LipsAgent
 from ListenerAgent import ListenerAgent
 from TranscriptionAgent import TranscriptionAgent
+from ResponderAgent import ResponderAgent
 
 CameraAgent('See3CAM_CU135',1,'robotEye',fps=10,zoom=350) # right eye
 time.sleep(1)
@@ -44,11 +45,12 @@ DrawingAgent('trajectories')
 time.sleep(1)
 LipsAgent() # move with lips
 time.sleep(1)
-#ListenerAgent('audio',0) # listen to audio
-#time.sleep(1)
-#TranscriptionAgent('audio','text') # transcribe audio into text
-#time.sleep(1)
-
+ListenerAgent('audio',2) # listen to audio
+time.sleep(1)
+TranscriptionAgent('audio','text') # transcribe audio into text
+time.sleep(1)
+ResponderAgent('text', 'picture', 'trajectories') # respond to the queries
+time.sleep(1)
 
 def en():
     space['language'] = 'en'

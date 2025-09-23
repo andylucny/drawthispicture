@@ -1,15 +1,15 @@
 import os
-import shutil
 import io
 import requests
 import zipfile
 import numpy as np
 import cv2
-import onnxruntime as ort
 import time
 
 from nicomover import setAngle, getAngle, enableTorque, disableTorque, park, release
 from nicomover import current_posture, move_to_posture, load_movement, play_movement
+
+method = 'perceptron' # 'rbf'
 
 def download_zipfile(path,url):
     if os.path.exists(path):
@@ -27,21 +27,44 @@ def download_nico_touch_model():
     if not os.path.exists('nico-touch-right-arm.onnx'):
         shutil.copy('training/perceptron.onnx', 'nico-touch-right-arm.onnx')
 
-download_nico_touch_model()
+if method == 'perceptron':
+    import shutil
+    import onnxruntime as ort
+    download_nico_touch_model()
+    dofs = ['r_shoulder_z', 'r_shoulder_y', 'r_arm_x', 'r_elbow_y', 'r_wrist_z', 'r_wrist_x', 'r_indexfinger_x']
+    providers = ['CPUExecutionProvider']
+    touch_model = ort.InferenceSession('nico-touch-right-arm.onnx', providers=providers)
+else:
+    from scipy.interpolate import RBFInterpolator
+    dataset = load_movement('dataset.txt')
+    dofs = list(dataset[0].keys())[:10]
+    touch_points = np.array([ [ sample[feat] for feat in ['x','y']] for sample in dataset], np.float32)
+    touch_angles = np.array([ [ sample[feat] for feat in dofs] for sample in dataset], np.float32)
+    interpolators = [ RBFInterpolator(touch_points, touch_angles[:, i]) for i in range(len(dofs)) ]
 
-providers = ['CPUExecutionProvider']
-touch_model = ort.InferenceSession('nico-touch-right-arm.onnx', providers=providers)
+def interpolate_angles(input_points):
+    interpolated = np.array([
+        interpolator(input_points)
+        for interpolator in interpolators
+    ]).T
+    return interpolated
 
 def points2postures(points, resolution):
     inp = points / np.array([resolution],np.float32)
-    out = touch_model.run(None, {"input": inp})[0]
+    if method == 'perceptron':
+        out = touch_model.run(None, {"input": inp})[0]
+    else:
+        out = interpolate_angles(inp)
     postures = []
     for posture, inp_i in zip(out, inp):
-        if posture[3] > 1.0: # elbow
-            continue # not possible to reach
-        if posture[5] > 1.0: # wrist-x
-            posture[5] = 1.0
-        posture = list(np.round(posture[:7]*180)) + [ round((inp_i[0]-0.5)*35), round((inp_i[1]-0.5)*5)-30 ]
+        if method == 'perceptron':
+            if posture[3] > 1.0: # elbow
+                continue # not possible to reach
+            if posture[5] > 1.0: # wrist-x
+                posture[5] = 1.0
+            posture = list(np.round(posture[:7]*180)) + [ round((inp_i[0]-0.5)*35), round((inp_i[1]-0.5)*5)-30 ]
+        else:
+            posture = list(np.round(posture)) + [ round((inp_i[0]-0.5)*35), round((inp_i[1]-0.5)*5)-30 ]
         postures.append(posture)
     return postures
 
@@ -52,24 +75,23 @@ def up(posture):
     return posture_up
     
 def form_hand():
-    dofs = ['r_thumb_z','r_thumb_x','r_indexfinger_x','r_middlefingers_x']
+    dofs_ = ['r_thumb_z','r_thumb_x','r_indexfinger_x','r_middlefingers_x']
     posture = [-70.0, 26.0, -180.0, 172.0]
-    move_to_posture(dict(zip(dofs,posture)), speed=0.04, wait=False)
-    
+    move_to_posture(dict(zip(dofs_,posture)), speed=0.04, wait=False)
+
 def get_ready():
     setAngle('r_elbow_y',55.0,speed=0.04)
     time.sleep(1)
-    dofs = ['l_shoulder_z', 'l_shoulder_y', 'l_arm_x', 'l_elbow_y', 'l_wrist_z', 'l_wrist_x']
+    dofs_ = ['l_shoulder_z', 'l_shoulder_y', 'l_arm_x', 'l_elbow_y', 'l_wrist_z', 'l_wrist_x']
     posture = [-25.0, 9.0, 5.0, 96.0, -13.0, 53.0]
-    move_to_posture(dict(zip(dofs,posture)), speed=0.04, wait=False)
-    dofs = ['r_shoulder_z', 'r_shoulder_y', 'r_arm_x', 'r_elbow_y', 'r_wrist_z', 'r_wrist_x', 'head_z', 'head_y']
+    move_to_posture(dict(zip(dofs_,posture)), speed=0.04, wait=False)
+    dofs_ = ['r_shoulder_z', 'r_shoulder_y', 'r_arm_x', 'r_elbow_y', 'r_wrist_z', 'r_wrist_x', 'head_z', 'head_y']
     posture = [13.0, 24.0, 13.0, 93.0, 122.0, 180.0, 1.0, -40.0]
-    move_to_posture(dict(zip(dofs,posture)), speed=0.04, wait=True)
+    move_to_posture(dict(zip(dofs_,posture)), speed=0.04, wait=True)
 
 def move_arm(posture):
-    #print('move head',time.time())
-    dofs = ['r_shoulder_z', 'r_shoulder_y', 'r_arm_x', 'r_elbow_y', 'r_wrist_z', 'r_wrist_x', 'r_indexfinger_x', 'head_z', 'head_y']
-    move_to_posture(dict(zip(dofs,posture)), speed=0.03, wait=True)
+    dofs_ = dofs + [ 'head_z', 'head_y']
+    move_to_posture(dict(zip(dofs_,posture)), speed=0.03, wait=True)
 
 def scale_to_max_extent(actual_width, actual_height, max_width, max_height):
     # Calculate the scaling factors for both width and height

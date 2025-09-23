@@ -39,6 +39,28 @@ def huang_thresholding(image):
             threshold = t
 
     return threshold
+
+def isodata_threshold(gray):
+    # Flatten image into 1D array
+    pixels = gray.ravel()
+    # Initial threshold is the mean of min and max
+    T_prev = 0
+    T = (pixels.min() + pixels.max()) / 2
+
+    while abs(T - T_prev) >= 1:
+        T_prev = T
+        lower = pixels[pixels <= T]
+        upper = pixels[pixels > T]
+
+        if len(lower) == 0 or len(upper) == 0:
+            break
+
+        mean1 = lower.mean()
+        mean2 = upper.mean()
+
+        T = (mean1 + mean2) / 2
+
+    return int(T)
     
 def get_trajectories(skeleton_image):
     trajectories = []
@@ -65,10 +87,16 @@ def get_trajectories(skeleton_image):
     return trajectories
 
 def extract_trajectories(img):
-    # Apply Huang thresholding
-    img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    threshold = huang_thresholding(img)
-    threshold = int(0.97*threshold)
+    print('shape',img.shape)
+    if len(img.shape) == 3:
+        #print('Huang thresholding')
+        img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+        threshold = huang_thresholding(img)
+        threshold = int(0.97*threshold)
+    else:
+        #print('isodata thresholding')
+        #threshold = isodata_threshold(img)
+        threshold = 60
     _, binary = cv2.threshold(img,threshold,255,cv2.THRESH_BINARY)
     drawing_percentage = (binary.size - cv2.countNonZero(binary)) / binary.size
     if drawing_percentage > 0.1:
@@ -115,7 +143,8 @@ def visualize_trajectories(trajectories, image_shape):
     return output_image
     
 if __name__ == '__main__':
-    img = cv2.imread('img.png')
+    #img = cv2.imread('img.png')
+    img = cv2.imread('generated.png',cv2.IMREAD_GRAYSCALE)
     trajectories = extract_trajectories(img)
     result = visualize_trajectories(trajectories, img.shape)
     cv2.imwrite('result.png',result)
