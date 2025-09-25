@@ -28,6 +28,6 @@ class TranscriptionAgent(Agent):
 if __name__ == '__main__':
     import time
     from ListenerAgent import ListenerAgent
-    ListenerAgent('audio',2)
+    ListenerAgent('audio',1) #2
     time.sleep(1)
     TranscriptionAgent('audio','text')

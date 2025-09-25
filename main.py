@@ -45,7 +45,7 @@ DrawingAgent('trajectories')
 time.sleep(1)
 LipsAgent() # move with lips
 time.sleep(1)
-ListenerAgent('audio',2) # listen to audio
+ListenerAgent('audio',1) #2 # listen to audio
 time.sleep(1)
 TranscriptionAgent('audio','text') # transcribe audio into text
 time.sleep(1)

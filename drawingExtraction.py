@@ -87,7 +87,7 @@ def get_trajectories(skeleton_image):
     return trajectories
 
 def extract_trajectories(img):
-    print('shape',img.shape)
+    #print('shape',img.shape)
     if len(img.shape) == 3:
         #print('Huang thresholding')
         img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)

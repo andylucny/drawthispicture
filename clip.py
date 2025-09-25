@@ -36,6 +36,8 @@ def softmax(x):
     return e_x / e_x.sum(axis=0)
 
 def image_clip(image,cropping = True):
+    if len(image.shape) == 2:
+        image = cv2.cvtColor(image,cv2.COLOR_GRAY2BGR)
     image_blob = cv2.dnn.blobFromImage(image, 1.0/255, (224,224), swapRB=True, crop=cropping)
     image_blob -= np.array([0.48145466, 0.4578275, 0.40821073]).reshape((3, 1, 1))
     image_blob /= np.array([0.26862954, 0.26130258, 0.27577711]).reshape((3, 1, 1))

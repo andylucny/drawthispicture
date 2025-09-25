@@ -36,9 +36,12 @@ class ResponderAgent(Agent):
         if self.match(r'(O|o)pa( |r|)ku[a-zA-Z!]+ (.*)',text) or self.match(r'(R|r)e( |)peat (.*)',text):
             tobesaid = self.matched()[2]
             self.speak(tobesaid)
-        elif self.match(r'(U|u)smej.*',text) or self.match(r'(S|s)mej.*',text) or self.match(r'(S|s)mile.*',text):
-            space(validity=1.5,priority=3)['emotion'] = "happiness"
-        else:
+        elif self.match(r'(U|u)sm.* sa.*',text) or self.match(r'(S|s)mej.* sa.*',text) or self.match(r'(S|s)mile.*',text):
+            print('happiness')
+            space(validity=1.5)['emotion'] = "happiness"
+        elif self.match(r'.*Ďakujem.*',text):
+            self.speak('prosím')
+        elif len(text) > 7: # to avoid void requests
             # call cloud
             print('question:',text)
             features = classify(text)

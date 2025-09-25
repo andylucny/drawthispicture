@@ -42,5 +42,6 @@ class ListenerAgent(Agent):
         pass
 
 if __name__ == '__main__':
-    ListenerAgent('audio',2) 
+    #ListenerAgent('audio',2) # Jabra
+    ListenerAgent('audio',1) # ATR
     
