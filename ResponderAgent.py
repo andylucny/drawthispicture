@@ -36,7 +36,7 @@ class ResponderAgent(Agent):
         if self.match(r'(O|o)pa( |r|)ku[a-zA-Z!]+ (.*)',text) or self.match(r'(R|r)e( |)peat (.*)',text):
             tobesaid = self.matched()[2]
             self.speak(tobesaid)
-        elif self.match(r'(U|u)smej.*') or self.match(r'(S|s)mej.*') or self.match(r'(S|s)mile.*'):
+        elif self.match(r'(U|u)smej.*',text) or self.match(r'(S|s)mej.*',text) or self.match(r'(S|s)mile.*',text):
             space(validity=1.5,priority=3)['emotion'] = "happiness"
         else:
             # call cloud
