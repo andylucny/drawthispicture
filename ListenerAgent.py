@@ -28,9 +28,9 @@ class ListenerAgent(Agent):
                 if space(default=False)['speaking']:
                     time.sleep(1)
                     continue
-                #print('recording...')
+                print('recording...')
                 audio = r.listen(source)
-                #print('...recorded')
+                print('...recorded')
                 if not space(default=False)['speaking']:
                     audio_data = np.frombuffer(audio.get_raw_data(), np.int16)
                     #print(audio_data.shape)

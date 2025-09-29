@@ -42,7 +42,8 @@ class DrawingAgent(Agent):
             text = 'Dobre.'
         else:
             text = "Ready."
-        self.speak(text)  
+        self.speak(text) 
+        clear()
         print("printing activated again")
         
 if __name__ == "__main__":

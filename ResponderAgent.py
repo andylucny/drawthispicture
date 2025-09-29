@@ -66,7 +66,7 @@ class ResponderAgent(Agent):
                         space['dontLook'] = False
                         print('we have trajectories')
                         result = visualize_trajectories(trajectories, img.shape)
-                        cv2.imshow('picture',result)
+                        cv2.imshow('picture2',result)
                         cv2.waitKey(1)
             elif kind == "text":
                 content = features[1]

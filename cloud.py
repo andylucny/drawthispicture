@@ -158,8 +158,8 @@ def handle_user_input(user_text: str):
 
 if __name__ == "__main__":
     # Example runs
-    print("=== Example: Nakresli mi slniečko ===")
-    handle_user_input("Nakresli mi slniečko")
+    #print("=== Example: Nakresli mi slniečko ===")
+    #handle_user_input("Nakresli mi slniečko")
     print("\n=== Example: co je hlavne mesto Slovenska ===")
     handle_user_input("co je hlavne mesto Slovenska")
 
