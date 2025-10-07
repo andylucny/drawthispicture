@@ -6,6 +6,7 @@ import onnxruntime as ort
 import numpy as np
 import cv2
 from tokenizer import Tokenizer
+import transcription from main # transcrition occupies the whole GPU
 
 def download_zipfile(path,url):
     if os.path.exists(path):
@@ -24,7 +25,7 @@ def download_clip():
 download_clip()
 
 tokenizer = Tokenizer('bpe_simple_vocab_16e6.txt.gz')
-providers = ['CUDAExecutionProvider','CPUExecutionProvider']
+providers = ['CPUExecutionProvider'] if transcription else ['CUDAExecutionProvider','CPUExecutionProvider'] 
 image_model = ort.InferenceSession('clip_image_model_vitb32.onnx', providers=providers)
 text_model = ort.InferenceSession('clip_text_model_vitb32.onnx', providers=providers)
 
