@@ -14,7 +14,7 @@ def signal_handler(signal, frame):
 
 signal.signal(signal.SIGINT, signal_handler)
 
-transcription = False # use whisper (only if you have a mikrophone with push to talk)
+from config import transcription
 
 from CameraAgent import CameraAgent
 from PerceptionAgent import PerceptionAgent

@@ -6,7 +6,7 @@ import onnxruntime as ort
 import numpy as np
 import cv2
 from tokenizer import Tokenizer
-import transcription from main # transcrition occupies the whole GPU
+from config import transcription # transcrition == True ... it occupies the whole GPU
 
 def download_zipfile(path,url):
     if os.path.exists(path):
