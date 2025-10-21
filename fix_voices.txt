@@ -1,0 +1,4 @@
+Add new language / Cestina / nechat iba Speech synthesis
+
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Voices\Tokens ->
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens

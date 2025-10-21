@@ -1,0 +1,664 @@
+Jablko
+Vzduch
+Kondicionér
+Letiště
+Ambulance
+Letadla
+Apartmán
+Šipka
+Parohy
+Zástěra
+Aligátor
+architekt
+Kotník
+Křeslo
+teta
+Míč
+Bermudy
+Fazole
+Balón
+Medvěd
+Halenka
+Postel
+Poklona
+Chléb
+Černá
+rady
+Kosti
+Účet
+Hořkost
+Boxerky
+Opasek
+Mozek
+Býk
+Ptáček
+Baby
+Kniha
+Zpět
+Máslo
+Žárovka
+Spony
+Netopýr
+Banka
+Taška
+Podprsenka
+Kozačky
+Blazer
+bikiny
+Knihovna
+Knihkupectví
+Autobusová zastávka
+Mosaz
+Bratr
+Chlapec
+Blender
+Kbelík
+Pekárna
+Most
+člun
+Auto
+kráva
+Čepice
+Sporák
+Líce
+Sýr
+Kredenc
+Koberec
+Vrána
+Hřeben
+Hrudník
+Židle
+Bonbón
+kabinet
+Kočka
+Káva
+děti
+Kuchyňské nádobí
+Lenoška
+Kuřecí
+Kasino
+Kabina
+Hrad
+církve
+Kavárna
+Kino
+Nákrčník
+Kravata
+Třtina
+Kostým
+Vesta
+Čokoláda
+Dětská postýlka
+Gauč
+Violoncello
+Pokladník
+Skladatel
+Jeskyně
+Země
+Počítač
+Kanoe
+Hodiny
+Pes
+Jelen
+osel
+Stůl
+Desktop
+Šaty
+Delfín
+Doktor
+zubař
+Buben
+Příborník
+Designér
+detektiv
+dcera
+Vejce
+Slon
+Náušnice
+Uši
+Oči
+Statek
+Prst
+Liška
+Šaty
+Žába
+Ventilátor
+Mraznička
+Ryby
+Film
+Noha
+Vlajka
+Továrna
+táta
+Farma
+les
+Květina
+Ovoce
+Vidlička
+Hrozny
+Koza
+Šaty
+Česnek
+Zázvor
+Žirafa
+Gauva
+Zrna
+Čerpací stanice
+Garáž
+Rukavice
+Brýle
+Dárek
+galaxie
+Kytara
+babička
+dědeček
+guvernér
+Dívka
+host
+Hamburger
+Ruka
+Hlava
+Vlasy
+Srdce
+Dům
+Kůň
+Slepice
+Horn
+Klobouk
+Kladivo
+Hostel
+Nemocnice
+Hotel
+Podpatky
+Bylinky
+Hostitel
+Bunda
+Pulovr
+Šperky
+Čelist
+Jumper
+soudce
+Odšťavňovač
+Klávesnice
+Dítě
+Kengur
+Koala
+Nůž
+Citron
+Lev
+Legíny
+Leg
+laptop
+Knihovna
+Jehněčí
+Londýn
+Rty
+Lung
+Zapalovač
+Zavazadla
+Lampa
+právník
+Myška
+Opice
+Ústa
+Mango
+Mléko
+Hudba
+Zrcadlo
+Hudebník
+matka
+Muž
+Model
+Mall
+muzeum
+Obchod
+Měsíční svit
+Lék
+Mikroskop
+Noviny
+Nos
+Zápisník
+Krk
+Nudle
+Zdravotní sestra
+Náhrdelník
+Hluk
+oceán
+Pštros
+Olej
+Oranžová
+Cibule
+Trouba
+Sova
+Papír
+Panda
+Kalhoty
+Palm
+Těstoviny
+Dýně
+Lékárník
+Bramborový
+Parfém
+Panther
+Pad
+Tužka
+Pipe
+Policie
+Pero
+Lékárna
+Čerpací stanice
+Policejní stanice
+Papoušek
+Letadlo
+Holub
+Mobilní telefon
+Páv
+Prase
+Sáček
+Pagoda
+Pyramida
+Peněženka
+Palačinka
+Popcorn
+Klavír
+Lékař
+Fotograf
+profesor
+Malíř
+Park
+Rostlina
+Rádio
+Žiletka
+Žebra
+Duha
+Prsten
+Králík
+Rýže
+Chladnička
+Dálkové ovládání
+Restaurace
+Cesta
+Chirurg
+Měřítko
+Šampon
+Umyvadlo
+Sůl
+Žralok
+Sandály
+Rameno
+Lžíce
+Mýdlo
+Písek
+Ovce
+Sárí
+Žaludek
+Schody
+polévka
+Bota
+Nůžky
+Vrabec
+Košile
+Kufr
+Sporák
+Sněhulák
+Sprcha
+Labuť
+Oblek
+Svetr
+Kouř
+Sukně
+Pohovka
+Ponožky
+stadionu
+Mrakodrap
+Škola
+Sluneční brýle
+Pantofle
+Šortky
+sendvič
+Jahoda
+Špagety
+Krevety
+Saxofon
+sestra
+Syn
+Zpěvačka
+senátor
+Ulice
+Supermarket
+Bazén
+Star
+Sky
+Slunce
+Loď
+Úsměv
+Tabulka
+Krocan
+Kravata
+Prsty na nohou
+Nákladní automobil
+Vlak
+Taxi
+Tygr
+Kalhoty
+Jazyk
+Televize
+učitel
+Želva
+Tablet
+Železniční stanice
+Zubní pasta
+Ocas
+Divadlo
+Trenčkot
+čaj
+Rajče
+Dorostenec
+Tunel
+Chrám
+Město
+Zubní kartáček
+Strom
+Hračka
+Tkáň
+Telefon
+Spodní prádlo
+strýc
+Deštník
+Vesta
+Hlas
+Veterinář
+Vila
+housle
+Obec
+Vozidlo
+Váza
+Peněženka
+Vlk
+Pás
+Zápěstí
+Meloun
+Velryba
+Voda
+Křídla
+Šlahač
+Hodinky
+Žena
+Pračka
+Invalidní vozík
+Číšník
+Poranění
+xylofon
+Zebra
+Zoologická zahrada
+Osoba
+Tenisky
+Láhev
+pohár
+Osvětlení
+Polička
+Kabelka
+taška
+Náramek
+Deska
+Obrázek
+Rám
+Přilba
+Úložný box
+Lavička
+Květinová rostlina
+Mísa
+Povodí
+Polštář
+Mikrofon
+Pohár na víno
+Monitor
+Batoh
+Semafor
+Mluvčí
+Koš
+Konzerva
+Kolo
+Židle
+Hlaveň
+Van
+Košík
+Autobus
+Divoký pták
+Vysoké podpatky
+Motocykl
+mobilní telefon
+Fotoaparát
+Zavařenina
+Dopravní kužel
+Činel
+Zachránce života
+Ručník
+Plyšová hračka
+Svíčka
+Plachetnice
+Markýza
+Kohoutek
+Stan
+Elektrická zásuvka
+Klimatizace
+Hokejka
+Pádlovat
+Náklaďák
+Dopravní značka
+Stativ
+Pot
+Koláč
+Jídelní stůl
+Věšák
+Tabule
+Tabule
+Ubrousek
+ryba
+mandarinka
+Toaletní potřeby
+Lucerna
+Strojní vůz
+Zelená zelenina
+Banán
+Baseballová rukavice
+Letadlo
+fotbal
+Skiboard
+Noční stolek
+Konvice na čaj
+Vozík
+telefon
+Sportovní auto
+Značka Stop
+Dezert
+Skútr
+Kočárek
+Jeřáb
+Kachna
+Baseballová pálka
+Dohledová kamera
+Džbán
+Brokolice
+Pizza
+skateboard
+Surfová deska
+Pistole
+Plynový sporák
+Donut
+Motýlek
+Mrkev
+WC
+Drak
+Lopata
+Paprika
+Počítačová skříňka
+Toaletní papír
+Čistící prostředky
+Paličky
+Mikrovlnná trouba
+Baseball
+Deska na sekání
+Prkénka na krájení
+Konferenční stolek
+Boční stůl
+Značkovač
+Koláč
+Žebřík
+Snowboard
+Pečivo
+Radiátor
+Požární hydrant
+Basketbal
+Hrozny
+Klobása
+Tříkolka
+Hasicí přístroj
+Hasičské auto
+Kulečník
+Konvertor
+Vana
+Golfový klub
+Aktovka
+Okurka
+Doutník
+Cigareta
+Štětec na barvu
+Hruška
+Těžké nákladní automobil
+Extraktor
+Prodlužovací kabel
+Kleště
+Tenisová raketa
+Složka
+americký fotbal
+sluchátka
+Maska
+Konvice
+tenis
+Houpačka
+Kávovar
+Snímek
+Přeprava
+Zelené fazolky
+Projektor
+talíř na Frisbee
+Pračka
+Sušící stroj
+Tiskárna
+meloun
+Zmrzlina
+hranolky
+Trofej
+Zelí
+Hot dog
+Peach
+volejbal
+husa
+páska
+Kosmetika
+Trubka
+Ananas
+Golfový míček
+Parkovací automat
+klíč
+Překážka
+Rybářský prut
+medaili
+Flétna
+Štětec
+Tučňák
+Megafon
+Kukuřice
+Salát
+Helikoptéra
+Zelená cibule
+Ořechy
+Značka omezení rychlosti
+Indukční vařič
+Metla
+Trombon
+Švestka
+Rikša
+Zlatá rybka
+Kiwi ovoce
+Směrovač
+modem
+Pokerová karta
+Topinkovač
+Suši
+Poznámkový papír
+Třešeň
+Kleště
+CD
+Tágo
+Avokádo
+meloun
+Banka
+Houba
+Šroubovák
+záznamník
+lilek
+Guma na tabuli
+Kokos
+Zvinovací metr
+Pravítko
+Sprchová hlavice
+Globus
+Čipsy
+Steak
+Značka přechodu pro chodce
+Sešívačka
+Velbloud
+Formule
+Granátové jablko
+Myčka nádobí
+Krab
+vznášedlo
+Masová koule
+Rýžovar
+Tuba
+Kalkulačka
+Papája
+Antilopa
+Pečeť
+Motýl
+Činka
+Pisoár
+Elektrická vrtačka
+Vysoušeč vlasů
+Vaječný koláč
+Medúza
+Běžecký pás
+Grapefruit
+Herní deska
+Mop
+Ředkvička
+Baozi
+Cíl
+francouzský klíč
+Závitek
+Penál
+Jak
+Červené zelí
+Dalekohled
+Chřest
+Činka
+Hřebenatka
+Přikyvuje
+Hřeben
+Knedlík
+Ústřice
+Pádlo na stolní tenis
+Kosmetický štětec
+Tužka na oční linky
+Motorová pila
+Guma
+Humr
+Durian
+Okra
+Rtěnka
+Kosmetické zrcadlo
+Kurling
+stolní tenis
+Čajník

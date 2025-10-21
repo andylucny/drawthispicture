@@ -26,9 +26,12 @@ class DrawingAgent(Agent):
         clear()
         draw_trajectories(trajectories)
         space(priority=5)['dontLook'] = None
-            
-        if space(default='en')['language'] == 'sk':
-            text = 'Hotovo. Dáme si oddych.'
+
+        lang = space(default='en')['language']
+        if lang == 'sk':
+            text = 'Hotovo. Dáme si minútu oddych.'
+        elif lang == 'cz':
+            text = 'Hotovo. Dáme si minutu odpočinek.'
         else:
             text = "Done. Let's take a break."
         self.speak(text)  
@@ -38,8 +41,11 @@ class DrawingAgent(Agent):
         time.sleep(60)
         space[self.nameTrajectories] = None
 
-        if space(default='en')['language'] == 'sk':
+        lang = space(default='en')['language']
+        if lang == 'sk':
             text = 'Dobre.'
+        elif lang == 'cz':
+            text = 'Dobře.'
         else:
             text = "Ready."
         self.speak(text) 

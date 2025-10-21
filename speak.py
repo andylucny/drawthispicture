@@ -21,11 +21,21 @@ def speak(text):
         os._exit(0)
         
     voice_names = [ voice.name for voice in voices ] 
-    #print(voice_names)
+    print(voice_names)
     
-    if space(default='en')['language'] == 'sk':
+    language = space(default='en')['language']
+    if language == 'sk':
         try:
             speaker = voice_names.index('Microsoft Filip - Slovak (Slovakia)')
+        except ValueError:
+            try:
+                speaker = voice_names.index('Vocalizer Expressive Laura Harpo 22kHz')
+            except ValueError:
+                speaker = 0
+                
+    elif language == 'cz':
+        try:
+            speaker = voice_names.index('Microsoft Jakub - Czech (Czech Republic)')
         except ValueError:
             try:
                 speaker = voice_names.index('Vocalizer Expressive Laura Harpo 22kHz')
@@ -55,4 +65,6 @@ def speak(text):
 
 if __name__ == "__main__":
     speak('Na holi sa pasie ovca.')
+    space['language'] = 'cz'
+    speak('Tohle by mohla být ovce')
     print('done')

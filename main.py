@@ -58,12 +58,16 @@ def en():
 def sk():
     space['language'] = 'sk'
 
+def cz():
+    space['language'] = 'cz'
+    
 def suspend():
     space(priority=10)['robotEye'] = np.zeros((480,640,3),np.uint8)
 
 def resume():
     space(priority=10)['robotEye'] = None
-    space(validity=0.1)['tospeak'] = 'Ideme na to!' if space(default='en')['language'] == 'sk' else "Let's go interacting!"
+    lang = space(default='en')['language']
+    space(validity=0.1)['tospeak'] = 'Ideme na to!' if lang == 'sk' else 'Jdeme na to!' if lang == 'cz' else "Let's go interacting!"
 
 def enter(text):
     space['text'] = text
@@ -72,5 +76,6 @@ def draw(text):
     space['text'] = "Nakresli mi " + text
 
 time.sleep(2)
+cz()
 resume()
 

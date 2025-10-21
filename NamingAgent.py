@@ -25,6 +25,7 @@ class NamingAgent(Agent):
     
     def init(self):
         self.sk = loadNames('sk.txt')
+        self.cz = loadNames('cz.txt')
         self.en = loadNames('en.txt')
         wipeout_path = 'wipeout.npy'
         if os.path.exists(wipeout_path):
@@ -106,10 +107,13 @@ class NamingAgent(Agent):
                 score = self.judgement[choice]
                 if score > 0:
                     color = (0,0,255) if score > self.judgement_threshold else (0,255,255)
-                    if space['language'] != 'sk':
-                        cv2.putText(image,f'{self.en[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
-                    else:
+                    lang = space['language']
+                    if lang == 'sk':
                         putText(image,f'{self.sk[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
+                    if lang == 'cz':
+                        putText(image,f'{self.cz[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
+                    else:
+                        cv2.putText(image,f'{self.en[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
                     y += 40
             cv2.imshow('Naming',image)
             cv2.waitKey(1)
@@ -124,8 +128,19 @@ class NamingAgent(Agent):
                     self.en[index] != 'Coffee Table': # Desk and others are in the front of the robot
                     if simulated or space(default=False)[self.nameFocused] or seeing_picture:
                         print(self.en[index],f'{confidence:.3f} {self.judgement[index]:.2f}', space(default=False)[self.nameFocused])
-                        if space(default='en')['language'] == 'sk':
-                            text = f'Toto je asi {self.sk[index]}.'
+                        lang = space(default='en')['language']
+                        if lang == 'sk':
+                            if self.sk[index] == 'deti':
+                                text = f'Toto sú asi {self.sk[index]}.'
+                            else:
+                                text = f'Toto je asi {self.sk[index]}.'
+                            if seeing_picture:
+                                text += '. Nakreslíme to!'
+                        elif lang == 'cz':
+                            if self.cz[index] == 'deti':
+                                text = f'Tohle budou {self.cz[index]}.'
+                            else:
+                                text = f'Tohle bude {self.cz[index]}.'
                             if seeing_picture:
                                 text += '. Nakreslíme to!'
                         else:

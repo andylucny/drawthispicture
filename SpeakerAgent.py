@@ -19,11 +19,12 @@ class SpeakerAgent(Agent):
 
 if __name__ == "__main__":  
     text = sys.argv[1] if len(sys.argv) > 1 else "hallo"
+    space['language'] = 'cz'
     speak(text)
     time.sleep(1)
     agent = SpeakerAgent('text')
     time.sleep(1)
-    text = 'toto poviem tri razy' if space['language'] == 'sk' else 'three times speaking' 
+    text = 'toto poviem tri razy' if space['language'] == 'sk' else 'tohle řeknu třikrát' if space['language'] == 'cz' else 'three times speaking' 
     space['text']= text
     space['text']= text
     space['text']= text
