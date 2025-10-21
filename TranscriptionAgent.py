@@ -28,7 +28,8 @@ class TranscriptionAgent(Agent):
 if __name__ == '__main__':
     import time
     from ListenerAgent import ListenerAgent
-    ListenerAgent('audio',2) #3 Jabra #1 ATR
+    #ListenerAgent('audio',3) #3 Jabra #1 ATR
+    ListenerAgent('audio',1) #3 Jabra #1 ATR #1 IO2
     time.sleep(1)
     space['language'] = 'cz'
     TranscriptionAgent('audio','text')

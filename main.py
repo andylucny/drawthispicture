@@ -14,6 +14,8 @@ def signal_handler(signal, frame):
 
 signal.signal(signal.SIGINT, signal_handler)
 
+from config import transcription
+
 from CameraAgent import CameraAgent
 from PerceptionAgent import PerceptionAgent
 from LookAroundAgent import LookAroundAgent
@@ -23,8 +25,9 @@ from SeeingAgent import SeeingAgent
 from TouchAgent import TouchAgent
 from DrawingAgent import DrawingAgent
 from LipsAgent import LipsAgent
-#from ListenerAgent import ListenerAgent
-#from TranscriptionAgent import TranscriptionAgent
+if transcription:
+    from ListenerAgent import ListenerAgent
+    from TranscriptionAgent import TranscriptionAgent
 from ResponderAgent import ResponderAgent
 
 CameraAgent('See3CAM_CU135',1,'robotEye',fps=10,zoom=350) # right eye
@@ -45,10 +48,11 @@ DrawingAgent('trajectories')
 time.sleep(1)
 LipsAgent() # move with lips
 time.sleep(1)
-#ListenerAgent('audio',1) #2 # listen to audio
-#time.sleep(1)
-#TranscriptionAgent('audio','text') # transcribe audio into text
-#time.sleep(1)
+if transcription:
+    ListenerAgent('audio',1) #3 for Jabra, 1 for ATR or IO2 # listen to audio
+    time.sleep(1)
+    TranscriptionAgent('audio','text') # transcribe audio into text via whisper
+    time.sleep(1)
 ResponderAgent('text', 'picture', 'trajectories') # respond to the queries
 time.sleep(1)
 
