@@ -3,7 +3,7 @@ import os
 import signal
 import re
 import numpy as np
-import cv2 as cv
+import cv2
 from agentspace import Agent, space, Trigger
 
 def quit():
@@ -79,12 +79,14 @@ def enter(text):
 def draw(text):
     space['text'] = "Nakresli mi " + text
 
-def save():
-    image = space['robotEye']
-    if image is not None:
-        image_file = str(int(time.time()))+'.png'
-        cv2.imwrite(image_file,image)
-        print(image_file,'recorded')
+def save(count=1):
+    for _ in range(count):
+        time.sleep(1)
+        image = space['robotEye']
+        if image is not None:
+            image_file = str(int(time.time()))+'.png'
+            cv2.imwrite(image_file,image)
+            print(image_file,'recorded')
 
 time.sleep(2)
 cz()
