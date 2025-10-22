@@ -79,6 +79,13 @@ def enter(text):
 def draw(text):
     space['text'] = "Nakresli mi " + text
 
+def save():
+    image = space['robotEye']
+    if image is not None:
+        image_file = str(int(time.time()))+'.png'
+        cv2.imwrite(image_file,image)
+        print(image_file,'recorded')
+
 time.sleep(2)
 cz()
 resume()
