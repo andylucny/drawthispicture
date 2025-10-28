@@ -89,6 +89,6 @@ def save(count=1):
             print(image_file,'recorded')
 
 time.sleep(2)
-cz()
+en()
 resume()
 

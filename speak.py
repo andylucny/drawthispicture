@@ -21,7 +21,7 @@ def speak(text):
         os._exit(0)
         
     voice_names = [ voice.name for voice in voices ] 
-    print(voice_names)
+    #print(voice_names)
     
     language = space(default='en')['language']
     if language == 'sk':
