@@ -3,6 +3,17 @@ import cv2 as cv
 import numpy as np
 from PIL import ImageFont, ImageDraw, Image
 
+"""
+import unicodedata
+
+def remove_dia(text):
+    nfkd_form = unicodedata.normalize('NFKD', text)
+    return ''.join([c for c in nfkd_form if unicodedata.category(c) != 'Mn'])
+
+def putText(image,text,pt,fnt,sz,color,thickness=1):
+    cv.putText(image,remove_dia(text),pt,fnt,sz,color,thickness)
+"""
+
 fonts = {}
 
 def putText(image,text,pt,fnt,sz,color,thickness=1):

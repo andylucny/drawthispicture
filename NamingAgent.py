@@ -110,7 +110,7 @@ class NamingAgent(Agent):
                     lang = space['language']
                     if lang == 'sk':
                         putText(image,f'{self.sk[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
-                    if lang == 'cz':
+                    elif lang == 'cz':
                         putText(image,f'{self.cz[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
                     else:
                         cv2.putText(image,f'{self.en[choice]} ... {score:.2f}',(10,y),0,1.0,color,2)
@@ -121,7 +121,8 @@ class NamingAgent(Agent):
         if index != -1 and index in self.judgement:
             if self.judgement[index] > self.judgement_threshold or seeing_picture:
                 if (self.last_index != index or seeing_picture) and \
-                    self.en[index] != 'Desk' and self.en[index] != 'Tablet' and self.en[index] != 'laptop' and self.en[index] != 'Game board' and \
+                    self.en[index] != 'Desk' and self.en[index] != 'Tablet' and self.en[index] != 'laptop' and self.en[index] != 'Apartment' and \
+                    self.en[index] != 'Desktop' and self.en[index] != 'Computer' and self.en[index] != 'Game board' and \
                     self.en[index] != 'Monitor' and self.en[index] != 'Projector' and self.en[index] != 'Photographer' and \
                     self.en[index] != 'Laptop' and self.en[index] != 'Blackboard' and self.en[index] != 'Whiteboard' and \
                     self.en[index] != 'Computer Box' and self.en[index] != 'Storage box' and self.en[index] != 'Dinning Table' and \
