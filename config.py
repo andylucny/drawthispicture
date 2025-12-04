@@ -1,1 +1,1 @@
-transcription = True # use whisper (only if you have a mikrophone with push to talk)
+transcription = False # use whisper (only if you have a mikrophone with push to talk)

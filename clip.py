@@ -26,8 +26,11 @@ download_clip()
 
 tokenizer = Tokenizer('bpe_simple_vocab_16e6.txt.gz')
 providers = ['CPUExecutionProvider'] if transcription else ['CUDAExecutionProvider','CPUExecutionProvider'] 
+print('loading clip models')
 image_model = ort.InferenceSession('clip_image_model_vitb32.onnx', providers=providers)
+print('image model loaded')
 text_model = ort.InferenceSession('clip_text_model_vitb32.onnx', providers=providers)
+print('text model loaded')
 
 def normalize(embeddings):
     return embeddings / np.linalg.norm(embeddings, axis=1, keepdims=True)
@@ -76,7 +79,7 @@ if __name__ == "__main__":
     ]
     text_embeddings = text_clip(texts)
     
-    for image_name in ['mandarine.jpg','ball.jpg']:
+    for image_name in ['1761294905.png']:
     
         image = cv2.imread(image_name)
     
